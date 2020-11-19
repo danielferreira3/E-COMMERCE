@@ -9,48 +9,94 @@ public class Main {
 	
 	public static void main (String[] args) {
 		int opcao;
-		int quantidade;
+		int quantidade1[] = new int [10];
 		int opcaoUsuario = 0;
-		
-		List<Produto> listaDeProdutos = new ArrayList<>(); 
+		int quantidade =0;
+		int contador=0;
+		List<Produto1> listaDeProdutos = new ArrayList<>(); 
 		Estoque estoqueCamsisas= new Estoque();
+		Carrinho carrinho1 = new Carrinho();
 		
-		
-		Produto camiseta = new Produto();
-		camiseta.setNome("Camisa de marca");
+		Produto1 camiseta = new Produto1();
+		camiseta.setEstoque(10);
+		camiseta.setNome("Camisa");
 		camiseta.setCodigoProduto(0);
-		camiseta.setPreco(100.0);
+		camiseta.setPreco(80.0);
 		
-		Produto bone = new Produto();
+		Produto1 bone = new Produto1();
 		bone.setNome("Bone");
+		bone.setEstoque(10);
 		bone.setCodigoProduto(1);
-		bone.setPreco(100.0);
+		bone.setPreco(200.0);
 		
-		Produto bone2 = new Produto();
-		bone2.setNome("Tenis");
-		bone2.setCodigoProduto(2);
-		bone2.setPreco(100.0);
+		Produto1 tenis = new Produto1();
+		tenis.setEstoque(10);
+		tenis.setNome("Tenis");
+		tenis.setCodigoProduto(2);
+		tenis.setPreco(350.0);
 		
-		Produto bone3 = new Produto();
-		bone3.setNome("Camisa top");
-		bone3.setCodigoProduto(3);
-		bone3.setPreco(100.0);
+		Produto1 calca = new Produto1();
+		calca.setEstoque(10);
+		calca.setNome("calca");
+		calca.setCodigoProduto(3);
+		calca.setPreco(100.0);
 		
+		Produto1 jaqueta = new Produto1();
+		jaqueta.setNome("jaqueta");
+		jaqueta.setEstoque(10);
+		jaqueta.setCodigoProduto(4);
+		jaqueta.setPreco(160.0);
+		
+		Produto1 luva = new Produto1();
+		luva.setNome("luva");
+		luva.setEstoque(10);
+		luva.setCodigoProduto(5);
+		luva.setPreco(10.0);
+		
+		Produto1 cinto = new Produto1();
+		cinto.setNome("cinto");
+		cinto.setEstoque(10);
+		cinto.setCodigoProduto(6);
+		cinto.setPreco(15.0);
+		
+		Produto1 chinelo = new Produto1();
+		chinelo.setNome("chinelo");
+		chinelo.setEstoque(10);
+		chinelo.setCodigoProduto(7);
+		chinelo.setPreco(60.0);
+		
+		Produto1 moletom = new Produto1();
+		moletom.setNome("moletom");
+		moletom.setEstoque(10);
+		moletom.setCodigoProduto(8);
+		moletom.setPreco(120.0);
+		
+		Produto1 regata = new Produto1();
+		regata.setNome("Bone");
+		regata.setEstoque(10);
+		regata.setCodigoProduto(9);
+		regata.setPreco(25.0);
 		
 		listaDeProdutos.add(camiseta);
 		listaDeProdutos.add(bone);
-		listaDeProdutos.add(bone2);
-		listaDeProdutos.add(bone3);
-
+		listaDeProdutos.add(tenis);
+		listaDeProdutos.add(calca);
+		listaDeProdutos.add(jaqueta);
+		listaDeProdutos.add(luva);
+		listaDeProdutos.add(cinto);
+		listaDeProdutos.add(chinelo);
+		listaDeProdutos.add(moletom);
+		listaDeProdutos.add(regata);
 		
 		Carrinho carrinho = new Carrinho();
 		
 		Scanner input = new Scanner(System.in);
-
 		
+		System.out.println("Codigo\t\tprodutos\tvalor\t\testoque");
 		for(int i = 0; i< listaDeProdutos.size(); i++) {
-			 System.out.println("Produto " + listaDeProdutos.get(i).getNome() + " digite o codigo " +
-		listaDeProdutos.get(i).getCodigoProduto() );
+			 System.out.println(listaDeProdutos.get(i).getCodigoProduto()+"\t\t"+listaDeProdutos.get(i).getNome()+ "\t\t"+
+		listaDeProdutos.get(i).getPreco()+"\t\t" + listaDeProdutos.get(i).getEstoque() );
+			 
 		}
 		
 		
@@ -65,13 +111,26 @@ public class Main {
 		quantidade = input.nextInt();
 		
 		System.out.println(carrinho.verificarSeExisteeAdicionarAoCarrinho(listaDeProdutos, opcao, quantidade));
+		
+		
+		
+		for(Produto1 p: carrinho.getProdutosNoCarrinho()) {
+			System.out.print(p.getNome() + p.getPreco());
+			System.out.println();
+			carrinho.setarValorTotal(p.getPreco());
+			camiseta.setarEstoque(quantidade1[opcao]);
 		}
 		
-		for(Produto p: carrinho.getProdutosNoCarrinho()) {
-			System.out.println(p.getNome());
+	}
+		
+		System.out.println("preço total: ");
+		System.out.println(carrinho.getValorTotal());
+		System.out.println("Codigo\t\tprodutos\tvalor\t\testoque");
+		for(int i = 0; i< listaDeProdutos.size(); i++) {
+			 System.out.println(listaDeProdutos.get(i).getCodigoProduto()+"\t\t"+listaDeProdutos.get(i).getNome()+ "\t\t"+
+		listaDeProdutos.get(i).getPreco()+"\t\t" + listaDeProdutos.get(i).getEstoque() );
+			 
 		}
-		
-		
 	}
 
 }

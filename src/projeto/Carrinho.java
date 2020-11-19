@@ -5,7 +5,7 @@ import java.util.List;
 
 public class Carrinho {
 	
-	private List<Produto> produtosNoCarrinho = new ArrayList<>();
+	private List<Produto1> produtosNoCarrinho = new ArrayList<>();
 	
 	private double valorTotal;
 	
@@ -21,11 +21,11 @@ public class Carrinho {
 		this.metodoPagamento = metodoPagamento;
 	}
 
-	public List<Produto> getProdutosNoCarrinho() {
+	public List<Produto1> getProdutosNoCarrinho() {
 		return produtosNoCarrinho;
 	}
 
-	public void setProdutosNoCarrinho(List<Produto> produtosNoCarrinho) {
+	public void setProdutosNoCarrinho(List<Produto1> produtosNoCarrinho) {
 		this.produtosNoCarrinho = produtosNoCarrinho;
 	}
 
@@ -37,7 +37,7 @@ public class Carrinho {
 		this.valorTotal = valorTotal;
 	}
 	
-	public void setarValorTotal() {
+	public void setarValorTotal(double valor) {
 		for(int i = 0; i< produtosNoCarrinho.size(); i++) {
 			 this.valorTotal += produtosNoCarrinho.get(i).getPreco();
 		}
@@ -58,7 +58,7 @@ public class Carrinho {
 	}
 	
 	
-	public String verificarSeExisteeAdicionarAoCarrinho(List<Produto> listaDeProdutos, int opcao, int quantidade) {
+	public String verificarSeExisteeAdicionarAoCarrinho(List<Produto1> listaDeProdutos, int opcao, int quantidade) {
 		
 		for(int i = 0; i<= listaDeProdutos.size(); i++) {
 
@@ -66,7 +66,7 @@ public class Carrinho {
 				this.produtosNoCarrinho.add(listaDeProdutos.get(i));
 				return "Sucesso";
 			} else {
-				System.out.println("Nao encotnrado");
+				System.out.println("Nao encontrado");
 			}
 		 
 		}

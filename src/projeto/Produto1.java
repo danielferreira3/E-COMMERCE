@@ -1,15 +1,32 @@
 package projeto;
 
-public class Produto {
+public class Produto1 {
 	
 	private String nome;
 	
 	private int codigoProduto;
 	
+	private int estoque;
+	
 	private double preco;
+	
+	
+	
+
+	public Produto1() {
+		super();
+	}
 
 	public double getPreco() {
 		return preco;
+	}
+
+	public int getEstoque() {
+		return estoque;
+	}
+
+	public void setEstoque(int estoque) {
+		this.estoque = estoque;
 	}
 
 	public void setPreco(double preco) {
@@ -33,5 +50,8 @@ public class Produto {
 	}
 		
 	
+	public void setarEstoque(int quantidade) {
+		this.estoque-=quantidade;
+	}
 
 }
